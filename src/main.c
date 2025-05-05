@@ -1,22 +1,10 @@
-#include "sample_lib.h"
-#include <dirent.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <sys/stat.h>
+#include "document.h"
 
-void createaleak() {
-  char *foo = malloc(20 * sizeof(char));
-  printf("Allocated leaking string: %s", foo);
-}
+#define DATASET_SIZE 12
 
 int main() {
-  printf("*****************\nWelcome to EDA 2!\n*****************\n");
-
-  // how to import and call a function
-  printf("Factorial of 4 is %d\n", fact(4));
-
-  // uncomment and run "make v" to see how valgrind detects memory leaks
-  // createaleak();
-
+  load_all_documents("wikipedia12", DATASET_SIZE);
+  printf("What document do you want to print? (ID range 0-%d): ", DATASET_SIZE);
   return 0;
 }
