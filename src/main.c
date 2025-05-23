@@ -34,4 +34,5 @@ int main() {
     assert(curr_document != NULL);
   }
   print_document(curr_document);
+  return 0;
 }
